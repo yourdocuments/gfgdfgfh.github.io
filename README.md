@@ -18,3 +18,9 @@ Live mode-e demo password kaj kore na; Firebase-e banano password-i lagbe.
 ## 4. APK
 Site GitHub Pages-e live hole https://www.pwabuilder.com → site URL din → Android → APK/AAB download.
 Note: APK-er app name/icon build-er somoy fixed; admin theke shudhu site-er vitorer logo/nam change hoy.
+
+## Roles (notun)
+- **Super admin** (`admin@snksupport.com`): shob dekhe — logo/nam/APK link, team, status, FAQ, shob chat (ke kokhon reply korlo).
+- **Team member**: Team page-e super admin email+password dile oi member login korte pare. Shudhu nijer chat dekhe, reply dey, ar "My status" (Available / Marketing / Travelling / In class / Offline) change kore. Available chhara onno status-e site-e Call button disabled thake.
+- **APK button**: Settings → "APK download link"-e link dile site-er upore "Download APK" button ashe. APK file repo-te (jemon `snk-support.apk`) rakhle link-e shudhu file-er nam din.
+- Live mode: Firestore rules abar publish korun (`firebase/firestore.rules` update hoyeche). Member-er password bhule gele login page-e "Forgot password?".

@@ -1,6 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Login</title><link rel="icon" href="../assets/icons/icon.svg"><link rel="stylesheet" href="../assets/css/style.css"></head>
-<body><div class="login"><h2>Admin login</h2><p style="color:var(--muted);margin:8px 0 18px;font-size:13px">Sign in to manage your site.</p>
-<form id="f"><label>Email</label><input id="e" type="email" required><label>Password</label><input id="p" type="password" required><p id="err" style="color:#ff8a8a;font-size:13px;margin-top:10px"></p><button class="btn primary" style="width:100%;margin-top:14px">Sign in</button></form><p style="margin-top:18px;font-size:12px"><a href="../index.html" style="color:var(--lime)">← Back to site</a></p></div>
-<script type="module">import {login,authed} from '../firebase/auth.js';
-if(await authed())location='index.html';
-f.onsubmit=async x=>{x.preventDefault();try{await login(e.value,p.value);location='index.html'}catch(z){err.textContent=z.message.replace('Firebase: ','')}}</script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login</title><link rel="icon" href="../assets/icons/icon.svg"><link rel="stylesheet" href="../assets/css/style.css"></head>
+<body><div class="login"><h2>Team &amp; Admin login</h2><p style="color:var(--muted);margin:8px 0 18px;font-size:13px">Team member ba super admin — nijer email &amp; password diye login korun.</p>
+<form id="f"><label>Email</label><input id="e" type="email" required><label>Password</label><input id="p" type="password" required><p id="err" style="color:#ff8a8a;font-size:13px;margin-top:10px"></p><button class="btn primary" style="width:100%;margin-top:14px">Sign in</button></form><p style="margin-top:16px;font-size:12px"><a href="#" id="fg" style="color:var(--muted)">Forgot password?</a> · <a href="../index.html" style="color:var(--lime)">← Back to site</a></p></div>
+<script type="module">import {login,session,reset} from '../firebase/auth.js';
+if(await session())location='index.html';
+f.onsubmit=async x=>{x.preventDefault();try{await login(e.value,p.value);location='index.html'}catch(z){err.textContent=z.message.replace('Firebase: ','')}};
+fg.onclick=async x=>{x.preventDefault();try{await reset(e.value);err.style.color='var(--lime)';err.textContent='Reset email pathano hoyeche.'}catch(z){err.textContent=z.message}}</script></body></html>

@@ -1,5 +1,5 @@
 import {live,fb,list} from './data.js';
-const SUPER='admin@snksupport.com',B='https://www.gstatic.com/firebasejs/10.12.2/';
+const SUPER='thesnkgraphic@email.com',B='https://www.gstatic.com/firebasejs/10.12.2/';
 const au=async()=>{const{app}=await fb(),m=await import(B+'firebase-auth.js');return{m,a:m.getAuth(app),app}};
 const set=o=>sessionStorage.snk_s=JSON.stringify(o);
 export async function login(e,p){

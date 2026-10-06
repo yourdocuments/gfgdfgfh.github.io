@@ -1,5 +1,5 @@
 SNK SUPPORT DEMO ADMIN LOGIN
-Email: admin@snksupport.com
+Email: thesnkgraphic@email.com
 Password: Admin@1234
 Admin page: admin/login.html
 

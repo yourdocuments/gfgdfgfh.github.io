@@ -1,4 +1,2 @@
-// Paste your Firebase Web App config here.
-// Firebase Console → Project settings → Your apps → Web app → SDK setup.
-export const firebaseConfig={apiKey:'PASTE_API_KEY',authDomain:'PASTE_PROJECT.firebaseapp.com',projectId:'PASTE_PROJECT_ID',storageBucket:'PASTE_PROJECT.firebasestorage.app',messagingSenderId:'PASTE_SENDER_ID',appId:'PASTE_APP_ID'};
-export const firebaseReady=!Object.values(firebaseConfig).some(v=>String(v).includes('PASTE_'));
+// Firebase keys boshale live mode chalu hobe. Khali thakle DEMO mode (shudhu ei browser-e save hoy).
+export const firebaseConfig={apiKey:"",authDomain:"",projectId:"",appId:""};

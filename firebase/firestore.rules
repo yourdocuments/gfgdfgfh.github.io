@@ -1,0 +1,9 @@
+rules_version='2';
+service cloud.firestore{match /databases/{d}/documents{
+ function admin(){return request.auth!=null&&request.auth.token.email=='admin@snksupport.com';}
+ match /site/{x}{allow read:if true;allow write:if admin();}
+ match /team/{x}{allow read:if true;allow write:if admin();}
+ match /faq/{x}{allow read:if true;allow write:if admin();}
+ match /threads/{s}{allow read:if admin();allow create,update:if true;allow delete:if admin();
+  match /msgs/{m}{allow read,create:if true;allow update,delete:if admin();}}
+}}

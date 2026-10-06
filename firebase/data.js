@@ -1,0 +1,7 @@
+import {firebaseConfig,firebaseReady} from './config.js';
+let db=null,fbReady=false;
+if(firebaseReady){try{const {initializeApp}=await import('https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js');const {getFirestore,doc,getDoc,setDoc,collection,addDoc}=await import('https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js');const app=initializeApp(firebaseConfig);db={getFirestore,doc,getDoc,setDoc,collection,addDoc,instance:getFirestore(app)};fbReady=true}catch(e){console.warn('Firebase unavailable; demo mode enabled.',e)}}
+export async function loadSettings(def){if(fbReady){try{const s=await db.getDoc(db.doc(db.instance,'settings','public'));return s.exists()?{...def,...s.data()}:{...def}}catch(e){}}return JSON.parse(localStorage.getItem('snkSettings')||'null')||{...def}}
+export async function saveSettings(data){if(fbReady){await db.setDoc(db.doc(db.instance,'settings','public'),data,{merge:true});return true}localStorage.setItem('snkSettings',JSON.stringify(data));return true}
+export async function saveMetric(type){const day=new Date().toISOString().slice(0,10);if(fbReady){try{const ref=db.doc(db.instance,'analytics',day);const old=await db.getDoc(ref);const d=old.exists()?old.data():{};d[type]=(d[type]||0)+1;d.date=day;await db.setDoc(ref,d,{merge:true});return}catch(e){}}const key='snkMetrics';const d=JSON.parse(localStorage.getItem(key)||'{}');d[day]=d[day]||{};d[day][type]=(d[day][type]||0)+1;localStorage.setItem(key,JSON.stringify(d))}
+export {fbReady};
